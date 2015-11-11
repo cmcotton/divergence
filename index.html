@@ -25,7 +25,7 @@
         
                   <div class="col-lg-3">
                     <label>入會金:</label>
-                    <input type="text" class="form-control" ng-model="enterFee" >
+                    <input type="text" class="form-control" ng-model="enterFee" ><button type="button" class="btn btn-xs btn-primary" ng-click="enterFee += 100">+</button><button type="button" class="btn btn-xs btn-danger" ng-click="enterFee -= 100">-</button>
                   </div>
                   <div class="col-lg-3">
                     <label>介紹費:</label>
@@ -33,7 +33,7 @@
                   </div>
                   <div class="col-lg-3">
                     <label>月份:</label>
-                    <input type="text" class="form-control" ng-model="month" ><button type="button" class="btn btn-xs btn-primary">+</button><button type="button" class="btn btn-xs btn-danger">-</button>
+                    <input type="text" class="form-control" ng-model="month" ><button type="button" class="btn btn-xs btn-primary" ng-click="month += 1">+</button><button type="button" class="btn btn-xs btn-danger" ng-click="month -= 1">-</button>
                   </div>
                   <div class="col-lg-3">
                     <label>每人月消費:</label>
