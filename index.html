@@ -17,7 +17,7 @@
   </head>
   <body>
     <div class="container" ng-controller="divCtrl">
-      <div>
+      <div class="col-lg-10">
         <label>入會金:</label>
         <input type="text" ng-model="enterFee" >
         <label>介紹費:</label>
@@ -28,7 +28,7 @@
         <input type="text" ng-model="amtPersonMonth" >
       </div>
       
-      <div>
+      <div class="col-lg-10">
         <label>累積額:</label>
         <input type="text" ng-model="accum" >
         <label>基礎介紹點數:</label>
@@ -39,12 +39,13 @@
         <input type="text" ng-model="exchangeRate" >
         <label>碰局金額(USD):</label>
         <input type="text" ng-model="amtUpper" >
+      </div>
+      <div class="col-lg-10">
         <label>第一代找人數量:</label>
         <input type="text" ng-model="peopleFound1st" >
         <label>第二代找人數量:</label>
         <input type="text" ng-model="peopleFound2nd" >
-      </div>
-      
+      </div>  
       <hr>
       單筆介紹費 * 月數 * 人數 = 介紹費({{introFee * month * peopleFound1st}}) <br>
       單筆點數 * 月數 * 人數 = 總點數({{baseIntroPoint * month * peopleFound1st}}) <br>
