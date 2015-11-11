@@ -39,21 +39,21 @@
                     <label>每人月消費:</label>
                     <input type="text" class="form-control" ng-model="amtPersonMonth" >
                   </div>
-                
-                
                   <div class="col-lg-3">
                     <label>累積額:</label>
                     <input type="text" class="form-control" ng-model="accum" >
+                  </div>
                   <div class="col-lg-3">
                     <label>基礎介紹點數:</label>
                     <input type="text" class="form-control" ng-model="baseIntroPoint" >
-                  </div>  <div class="col-lg-3">
+                  </div>  
+                  <div class="col-lg-3">
                     <label>月底銷點數:</label>
                     <input type="text" class="form-control" ng-model="minusPoint" >
                   </div>  
                   <div class="col-lg-3">
                     <label>美金匯率:</label>
-                    <input type="text" class="form-control" ng-model="exchangeRate" >
+                    <input type="text" class="form-control" ng-model="exchangeRate"><button type="button" class="btn btn-xs btn-primary" ng-click="exchangeRate = exchangeRate + 0.1">+</button><button type="button" class="btn btn-xs btn-danger" ng-click="exchangeRate = exchangeRate - 0.1">-</button>
                   </div>  
                   <div class="col-lg-3">
                     <label>碰局金額(USD):</label>
