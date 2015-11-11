@@ -142,9 +142,9 @@
       
       vm.getMemberCount = function myself (gen) {
         if (gen == 1) {
-          return peopleFound1st;
+          return vm.peopleFound1st + 1;
         } else {
-          return (myself(gen -1) + 1) * (peopleFound2nd + 1);
+          return (myself(gen -1) + 1) * (vm.peopleFound2nd + 1);
         }
       };
     });
