@@ -80,32 +80,32 @@
               單筆點數 * 月數 * 人數 = 總點數({{baseIntroPoint * month * peopleFound1st}}) <br>
         
               第[ 1 ]代找[ {{peopleFound1st}} ]人總人數為：{{getMemberCount(1) + 1}}<br>
-              第[ 1 ]代找[ {{peopleFound1st}} ]人總點數為：{{peopleFound1st * minusPoint}}<br>
+              第[ 1 ]代找[ {{peopleFound1st}} ]人總點數為：{{getPointCount(1)}}<br>
               第[ 1 ]代管理收入[ 0 ] * 人數[ {{peopleFound1st}} ] * 管理比率[ 0.25% ] = 管理收入[ 0 ]<br>
               <br>
               第[ 2 ]代找[ {{peopleFound2nd}} ]人總人數為：{{getMemberCount(2)}}
-              第[ 2 ]代找[ {{peopleFound2nd}} ]人總點數為：?<br>
+              第[ 2 ]代找[ {{peopleFound2nd}} ]人總點數為：{{getPointCount(2)}}<br>
               第[ 2 ]代管理收入[ 19,458 ] * 人數[ 16 ] * 管理比率[ 0.15% ] = 管理收入[ 46,698 ]<br>
               <br>
               第[ 3 ]代找[ 1 ]人總人數為：{{getMemberCount(3)}}<br>
-              第[ 3 ]代找[ 1 ]人總點數為：3,420<br>
+              第[ 3 ]代找[ 1 ]人總點數為：{{getPointCount(3)}}<br>
               第[ 3 ]代管理收入[ 9,186 ] * 人數[ 34 ] * 管理比率[ 0.1% ] = 管理收入[ 31,234 ]<br>
               <br>
               第[ 4 ]代找[ 1 ]人總人數為：{{getMemberCount(4)}}<br>
-              第[ 4 ]代找[ 1 ]人總點數為：7,620<br>
+              第[ 4 ]代找[ 1 ]人總點數為：{{getPointCount(4)}}<br>
               第[ 4 ]代管理收入[ 4,123 ] * 人數[ 70 ] * 管理比率[ 0.05% ] = 管理收入[ 14,431 ]<br>
               <br>
               第[ 5 ]代找[ 1 ]人總人數為：{{getMemberCount(5)}}<br>
-              第[ 5 ]代找[ 1 ]人總點數為：16,140<br>
+              第[ 5 ]代找[ 1 ]人總點數為：{{getPointCount(5)}}<br>
               第[ 5 ]代管理收入[ 506 ] * 人數[ 142 ] * 管理比率[ 0.05% ] = 管理收入[ 3,595 ]<br>
               <br>
               第[ 6 ]代找[ 1 ]人總人數為：{{getMemberCount(6)}}<br>
-              第[ 6 ]代找[ 1 ]人總點數為：16,140<br>
+              第[ 6 ]代找[ 1 ]人總點數為：{{getPointCount(6)}}<br>
               第[ 6 ]代管理收入[ 506 ] * 人數[ 142 ] * 管理比率[ 0.05% ] = 管理收入[ 3,595 ]<br>
               <br>
-              [ 7 ]代合計總人數：142<br>
-              [ 7 ]總代合計總點數：16,140<br>
-              總點數[ 16140 ] / [ 900 ] * [ 1085 ] = 月收入[ NT$19,458元 ]<br>
+              [ 7 ]代合計總人數：{{getMemberCount(7)}}<br>
+              [ 7 ]總代合計總點數：{{getPointCount(7)}}<br>
+              總點數[ {{getPointCount(7)}} ] / [ {{accum}} ] * [ {{exchangeRate * amtUpper}} ] = 月收入[ NT${{getPointCount(7) / accum * exchangeRate * amtUpper}}元 ]<br>
               <br>
               總金額[ 95,957 ]<br>
             </div>
@@ -147,6 +147,17 @@
           return (myself(gen -1) + 1) * (vm.peopleFound2nd + 1);
         }
       };
+      typeof myself === 'undefined';
+      
+      vm.getPointCount = function myself (gen) {
+        if (gen == 1) {
+          return vm.getMemberCount(gen) * vm.minusPoint;
+        } else {
+          return vm.getMemberCount(gen) * vm.minusPoint + myself(gen -1);
+        }
+      };
+      typeof myself === 'undefined';
+      
     });
     
   </script>
