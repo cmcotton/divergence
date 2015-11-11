@@ -81,41 +81,39 @@
         
               第[ 1 ]代找[ {{peopleFound1st}} ]人總人數為：{{getMemberCount(1) + 1}}<br>
               第[ 1 ]代找[ {{peopleFound1st}} ]人總點數為：{{getPointCount(1)}}<br>
-              第[ 1 ]代管理收入[ {{getMgtRvn(1) | number:0}} ] * 人數[ {{getMemberCount(1) + 1}} ] * 管理比率[ 0.25% ] = 管理收入[ {{getMgtRvn(1) * (getMemberCount(1) + 1) * .25}} ]<br>
+              第[ 1 ]代管理收入[ {{getMgtRvn(1) | number:0}} ] * 人數[ {{getMemberCount(1) + 1}} ] * 管理比率[ 0.25% ] = 管理收入[ {{getTotalMgtRvn(1) | number:0}} ]<br>
               <br>
               第[ 2 ]代找[ {{peopleFound2nd}} ]人總人數為：{{getMemberCount(2)}}
               第[ 2 ]代找[ {{peopleFound2nd}} ]人總點數為：{{getPointCount(2)}}<br>
-              第[ 2 ]代管理收入[ {{getMgtRvn(2) | number:0}} ] * 人數[ {{getMemberCount(2)}} ] * 管理比率[ 0.15% ] = 管理收入[ {{getMgtRvn(2) * getMemberCount(2) * .15}} ]<br>
+              第[ 2 ]代管理收入[ {{getMgtRvn(2) | number:0}} ] * 人數[ {{getMemberCount(2)}} ] * 管理比率[ 0.15% ] = 管理收入[ {{getTotalMgtRvn(2) | number:0}} ]<br>
               <br>
               第[ 3 ]代找[ 1 ]人總人數為：{{getMemberCount(3)}}<br>
               第[ 3 ]代找[ 1 ]人總點數為：{{getPointCount(3)}}<br>
-              第[ 3 ]代管理收入[ {{getMgtRvn(3) | number:0}} ] * 人數[ {{getMemberCount(3)}} ] * 管理比率[ 0.1% ] = 管理收入[ {{getMgtRvn(3) * getMemberCount(3) * .1}} ]<br>
+              第[ 3 ]代管理收入[ {{getMgtRvn(3) | number:0}} ] * 人數[ {{getMemberCount(3)}} ] * 管理比率[ 0.1% ] = 管理收入[ {{getTotalMgtRvn(3) | number:0}} ]<br>
               <br>
               第[ 4 ]代找[ 1 ]人總人數為：{{getMemberCount(4)}}<br>
               第[ 4 ]代找[ 1 ]人總點數為：{{getPointCount(4)}}<br>
-              第[ 4 ]代管理收入[ {{getMgtRvn(4) | number:0}} ] * 人數[ {{getMemberCount(4)}} ] * 管理比率[ 0.05% ] = 管理收入[ {{getMgtRvn(4) * getMemberCount(4) * .05}} ]<br>
+              第[ 4 ]代管理收入[ {{getMgtRvn(4) | number:0}} ] * 人數[ {{getMemberCount(4)}} ] * 管理比率[ 0.05% ] = 管理收入[ {{getTotalMgtRvn(4) | number:0}} ]<br>
               <br>
               第[ 5 ]代找[ 1 ]人總人數為：{{getMemberCount(5)}}<br>
               第[ 5 ]代找[ 1 ]人總點數為：{{getPointCount(5)}}<br>
-              第[ 5 ]代管理收入[ {{getMgtRvn(5) | number:0}} ] * 人數[ {{getMemberCount(5)}} ] * 管理比率[ 0.05% ] = 管理收入[ {{getMgtRvn(5) * getMemberCount(5) * .05}} ]<br>
+              第[ 5 ]代管理收入[ {{getMgtRvn(5) | number:0}} ] * 人數[ {{getMemberCount(5)}} ] * 管理比率[ 0.05% ] = 管理收入[ {{getTotalMgtRvn(5) | number:0}} ]<br>
               <br>
               第[ 6 ]代找[ 1 ]人總人數為：{{getMemberCount(6)}}<br>
               第[ 6 ]代找[ 1 ]人總點數為：{{getPointCount(6)}}<br>
-              第[ 6 ]代管理收入[ {{getMgtRvn(6) | number:0}} ] * 人數[ {{getMemberCount(5)}} ] * 管理比率[ 0.05% ] = 管理收入[ {{getMgtRvn(6) * getMemberCount(6) * .05}} ]<br>
+              第[ 6 ]代管理收入[ {{getMgtRvn(6) | number:0}} ] * 人數[ {{getMemberCount(6)}} ] * 管理比率[ 0.05% ] = 管理收入[ {{getTotalMgtRvn(6) | number:0}} ]<br>
               <br>
               第[ 7 ]代找[ 1 ]人總人數為：{{getMemberCount(7)}}<br>
               第[ 7 ]代找[ 1 ]人總點數為：{{getPointCount(7)}}<br>
-              第[ 7 ]代管理收入[ {{getMgtRvn(7) | number:0}} ] * 人數[ {{getMemberCount(5)}} ] * 管理比率[ 0.05% ] = 管理收入[ {{getMgtRvn(7) * getMemberCount(7) * .05}} ]<br>
+              第[ 7 ]代管理收入[ {{getMgtRvn(7) | number:0}} ] * 人數[ {{getMemberCount(7)}} ] * 管理比率[ 0.05% ] = 管理收入[ {{getTotalMgtRvn(7) | number:0}} ]<br>
               <br>
               [ 7 ]代合計總人數：{{getMemberCount(7)}}<br>
               [ 7 ]總代合計總點數：{{getPointCount(7)}}<br>
               總點數[ {{getPointCount(7)}} ] / [ {{accum}} ] * [ {{exchangeRate * amtUpper}} ] = 月收入[ NT${{getPointCount(7) / accum * exchangeRate * amtUpper | number:0}}元 ]<br>
               <br>
-              總金額[ 95,957 ]<br>
+              總金額[ {{getSum() | number:0}} ]<br>
             </div>
         </div>
-        
-        
       </div>
     </div>
   </body>
@@ -130,7 +128,9 @@
     ilmApp.controller('divCtrl', function($scope, $http) {
     
     	var vm = $scope;
-    	
+
+      vm.rates = [.25, .15, .1, .05, .05, .05, .05];
+      
     	vm.enterFee = 8835;
     	vm.introFee = 775;   
     	vm.month = 1;
@@ -143,6 +143,8 @@
       vm.amtUpper = 35.00;
       vm.peopleFound1st = 7;
       vm.peopleFound2nd = 1;
+      
+      vm.total = 0;
       
       vm.getMemberCount = function myself (gen) {
         if (gen == 1) {
@@ -170,7 +172,25 @@
         }
       };
       typeof myself === 'undefined';
+      
+      vm.getTotalMgtRvn = function(gen) {
+        if (gen == 1) {
+          return getMgtRvn(1) * (getMemberCount(1) + 1) * vm.rates[gen - 1];
+        } else {
+          return getMgtRvn(gen) * getMemberCount(gen) * vm.rates[gen - 1];
+        }
+      };
+      
+      vm.getSum = function(gen) {
+        var sum = 0;
+        for (var i = 1; i <= 7; i++) {
+          sum += getTotalMgtRvn(i);
+        }
+        return sum;
+      };
     });
+    
+    
     
   </script>
   
