@@ -7,11 +7,8 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
-
-    <!-- Latest compiled and minified JavaScript -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">    <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-    
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
   </head>
   <body>
@@ -79,9 +76,9 @@
               單筆介紹費 * 月數 * 人數 = 介紹費({{introFee * month * peopleFound1st}}) <br>
               單筆點數 * 月數 * 人數 = 總點數({{baseIntroPoint * month * peopleFound1st}}) <br>
         
-              第[ 1 ]代找[ {{peopleFound1st}} ]人總人數為：{{getMemberCount(1) + 1}}<br>
+              第[ 1 ]代找[ {{peopleFound1st}} ]人總人數為：{{getMemberCount(1)}}<br>
               第[ 1 ]代找[ {{peopleFound1st}} ]人總點數為：{{getPointCount(1)}}<br>
-              第[ 1 ]代管理收入[ {{getMgtRvn(1) | number:0}} ] * 人數[ {{getMemberCount(1) + 1}} ] * 管理比率[ 0.25% ] = 管理收入[ {{getTotalMgtRvn(1) | number:0}} ]<br>
+              第[ 1 ]代管理收入[ {{getMgtRvn(1) | number:0}} ] * 人數[ {{getMemberCount(1)}} ] * 管理比率[ 0.25% ] = 管理收入[ {{getTotalMgtRvn(1) | number:0}} ]<br>
               <br>
               第[ 2 ]代找[ {{peopleFound2nd}} ]人總人數為：{{getMemberCount(2)}}
               第[ 2 ]代找[ {{peopleFound2nd}} ]人總點數為：{{getPointCount(2)}}<br>
@@ -150,7 +147,7 @@
         if (gen == 1) {
           return vm.peopleFound1st;
         } else {
-          return (myself(gen -1) + 1) * (vm.peopleFound2nd + 1);
+          return (myself(gen -1)) * (vm.peopleFound2nd + 1);
         }
       };
       typeof myself === 'undefined';
