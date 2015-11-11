@@ -175,16 +175,16 @@
       
       vm.getTotalMgtRvn = function(gen) {
         if (gen == 1) {
-          return getMgtRvn(1) * (getMemberCount(1) + 1) * vm.rates[gen - 1];
+          return vm.getMgtRvn(1) * (vm.getMemberCount(1) + 1) * vm.rates[gen - 1];
         } else {
-          return getMgtRvn(gen) * getMemberCount(gen) * vm.rates[gen - 1];
+          return vm.getMgtRvn(gen) * vm.getMemberCount(gen) * vm.rates[gen - 1];
         }
       };
       
       vm.getSum = function(gen) {
         var sum = 0;
         for (var i = 1; i <= 7; i++) {
-          sum += getTotalMgtRvn(i);
+          sum += vm.getTotalMgtRvn(i);
         }
         return sum;
       };
