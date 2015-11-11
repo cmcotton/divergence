@@ -140,13 +140,13 @@
       vm.peopleFound1st = 7;
       vm.peopleFound2nd = 1;
       
-      vm.getMemberCount = function(gen) {
+      vm.getMemberCount = function myself (gen) {
         if (gen == 1) {
           return peopleFound1st;
         } else {
-          return (this(gen -1) + 1) * (peopleFound2nd + 1);
+          return (myself(gen -1) + 1) * (peopleFound2nd + 1);
         }
-      }
+      };
     });
     
   </script>
