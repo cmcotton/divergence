@@ -23,7 +23,7 @@
         <label>介紹費:</label>
         <input type="text" ng-model="introFee" >
         <label>月份:</label>
-        <input type="text" ng-model="month" >
+        <input type="text" ng-model="month" ><span class="label label-primary">+</span><span class="label label-danger">-</span>
         <label>每人月消費:</label>
         <input type="text" ng-model="amtPersonMonth" >
       </div>
@@ -56,7 +56,7 @@
               單筆點數 * 月數 * 人數 = 總點數({{baseIntroPoint * month * peopleFound1st}}) <br>
         
               第[ 1 ]代找[ {{peopleFound1st}} ]人總人數為：{{1 + peopleFound1st}}<br>
-              第[ 1 ]代找[ {{peopleFound1st}} ]人總點數為：?<br>
+              第[ 1 ]代找[ {{peopleFound1st}} ]人總點數為：{{peopleFound1st * minusPoint}}<br>
               第[ 1 ]代管理收入[ 0 ] * 人數[ {{peopleFound1st}} ] * 管理比率[ 0.25% ] = 管理收入[ 0 ]<br>
               <br>
               第[ 2 ]代找[ {{peopleFound2nd}} ]人總人數為：{{ 1 + peopleFound1st * peopleFound2nd}}
