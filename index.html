@@ -27,12 +27,28 @@
         <label>每人月消費:</label>
         <input type="text" ng-model="amtPersonMonth" >
       </div>
-    </div>
-    
-    <hr>
-      <h1>Hello {{enterFee + introFee }}!</h1>
-    
       
+      <div>
+        <label>累積額:</label>
+        <input type="text" ng-model="accum" >
+        <label>基礎介紹點數:</label>
+        <input type="text" ng-model="baseIntroPoint" >
+        <label>月底銷點數:</label>
+        <input type="text" ng-model="minusPoint" >
+        <label>美金匯率:</label>
+        <input type="text" ng-model="exchangeRate" >
+        <label>碰局金額(USD):</label>
+        <input type="text" ng-model="amtUpper" >
+        <label>第一代找人數量:</label>
+        <input type="text" ng-model="peopleFound1st" >
+        <label>第二代找人數量:</label>
+        <input type="text" ng-model="peopleFound2nd" >
+      </div>
+      
+      <hr>
+      <h1>單筆介紹費 * 月數 * 人數 = 介紹費({{introFee * month * peopleFound1st}})</h1>
+    </div>
+
   </body>
   <script>
     //Angular.js
@@ -51,48 +67,14 @@
     	vm.month = 1;
     	vm.amtPersonMonth = 2883;
     	
-    	// load rule blocks when document ready
-    	angular.element(document).ready(function () {
-    		   console.log('Hello World');
-    		   $http.post('/account/regu/loadRuleBlock.html').
-    	        then(function(response) {
-    	        	var ruleBlocks = response.data;
-    	        	var rb;
-    	        	for (rb of ruleBlocks) {
-    	        		vm.dataSources1.push({id: rb.id, name: rb.name});
-    	        		vm.dataSources2.push({id: rb.id, name: rb.name});
-    	        	}
-    	        	
-    	        }, function(response) {
-    	          $scope.data = response.data || "Request failed";
-    	          $scope.status = response.status;
-    	      });
-    	});
-    	
-    	vm.addRule = function() {
-    		vm.currentRules.push({
-    			source1: vm.source1,
-    			source2: vm.source2,
-    			oper: vm.oper,
-    			ruleChainName: vm.ruleChainName
-    		});
-    	};
-    	
-       vm.delRule = function(index) {
-            vm.currentRules.splice(index, 1);
-        };
-        
-        vm.run = function(index) {
-        	$http.post('/account/regu/runRuleChain.html', 'ruleId=' + index).
-            then(function(response) {
-              $scope.status = response.status;
-              $scope.data = response.data;
-            }, function(response) {
-              $scope.data = response.data || "Request failed";
-              $scope.status = response.status;
-          });
-        };
-    });
+    	vm.accum = 900;
+    	vm.baseIntroPoint = 100;   
+    	vm.minusPoint = 60;
+    	vm.exchangeRate = 31;
+      vm.amtUpper = 35.00;
+      vm.peopleFound1st = 7;
+      vm.peopleFound2nd = 1;
+      
     
   </script>
   
