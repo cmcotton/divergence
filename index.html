@@ -22,14 +22,14 @@
         
                   <div class="col-xs-6 col-md-2">
                     <label>入會金:</label>
-                    <select name="repeatSelect" id="repeatSelect" ng-model="enterFee">
+                    <select name="repeatSelect" class="form-control" id="repeatSelect" ng-model="enterFee">
                       <option ng-repeat="option in feeCombos" value="{{option.fee}}">{{option.fee}}</option>
                     </select>
-                    <input type="text" class="form-control" ng-model="enterFee" ><button type="button" class="btn btn-xs btn-primary" ng-click="enterFee = enterFee + 100">+</button><button type="button" class="btn btn-xs btn-danger" ng-click="enterFee = enterFee - 100">-</button>
+                    <!--<input type="text" ng-model="enterFee" ><button type="button" class="btn btn-xs btn-primary" ng-click="enterFee = enterFee + 100">+</button><button type="button" class="btn btn-xs btn-danger" ng-click="enterFee = enterFee - 100">-</button>-->
                   </div>
                   <div class="col-xs-6 col-md-2">
                     <label>介紹費:</label>
-                    <input type="text" class="form-control" ng-model="introFee" ><button type="button" class="btn btn-xs btn-primary" ng-click="introFee = introFee + 1">+</button><button type="button" class="btn btn-xs btn-danger" ng-click="introFee = introFee - 1">-</button>
+                    <input type="text" class="form-control" ng-model="{{option.intro}}" >
                   </div>
                   <div class="col-xs-6 col-md-2">
                     <label>人數 / 月份:</label>
