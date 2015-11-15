@@ -209,13 +209,12 @@
         }
         return sum;
       };
+      
+      vm.update = function() {
+        vm.introFee = enterFee.intro;
+        vm.baseIntroPoint = enterFee.point;
+      };
     });
-    
-    vm.update = function() {
-      vm.introFee = enterFee.intro;
-      vm.baseIntroPoint = enterFee.point;
-    };
-    
     
   </script>
   
