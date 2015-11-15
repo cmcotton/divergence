@@ -22,6 +22,9 @@
         
                   <div class="col-xs-6 col-md-2">
                     <label>入會金:</label>
+                    <select ng-model="enterFee" class="form-control" ng-options="feeCombos.fee for feeCombos in feeCombos">  
+                      <option value="">-- 請選擇 --</option>  
+                    </select> 
                     <input type="text" class="form-control" ng-model="enterFee" ><button type="button" class="btn btn-xs btn-primary" ng-click="enterFee = enterFee + 100">+</button><button type="button" class="btn btn-xs btn-danger" ng-click="enterFee = enterFee - 100">-</button>
                   </div>
                   <div class="col-xs-6 col-md-2">
@@ -128,7 +131,28 @@
 
       vm.rates = [.25, .15, .1, .05, .05, .05, .05];
       
-    	vm.enterFee = 8835;
+      vm.feeCombos = [
+      {
+        fee: 8835,
+        point: 100,
+        intro: 775
+      },
+      {
+        fee: 32550,
+        point: 400,
+        intro: 200
+      },
+      {
+        fee: 48980,
+        point: 520,
+        intro: 300
+      },
+      {
+        fee: 97650,
+        point: 1000,
+        intro: 500
+      }];
+    	vm.enterFee = [{8835];
     	vm.introFee = 775;   
     	vm.month = 1;
     	vm.amtPersonMonth = 2883;
