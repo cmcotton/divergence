@@ -212,7 +212,7 @@
       
       vm.update = function() {
         
-        for (var i = 0; i < vm.feeCombos.length - 1; i++) {
+        for (var i = 0; i < vm.feeCombos.length; i++) {
           if (vm.feeCombos[i].fee == vm.enterFee) {
             vm.introFee = vm.feeCombos[i].intro;
             vm.baseIntroPoint = vm.feeCombos[i].point;
