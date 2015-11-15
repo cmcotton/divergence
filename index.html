@@ -211,9 +211,15 @@
       };
       
       vm.update = function() {
-        var feeCombo = vm.feeCombos[vm.feeCombos.indexOf(vm.enterFee)];
-        vm.introFee = feeCombo.intro;
-        vm.baseIntroPoint = feeCombo.point;
+        
+        for (var i = 0; i < vm.feeCombos.length - 1; i++) {
+          if (vm.feeCombos[i].fee == vm.enterFee) {
+            vm.introFee = vm.feeCombos[i].intro;
+            vm.baseIntroPoint = vm.feeCombos[i].point;
+            break;
+          }
+        }
+        
       };
     });
     
