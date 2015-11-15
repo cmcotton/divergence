@@ -211,8 +211,9 @@
       };
       
       vm.update = function() {
-        vm.introFee = vm.enterFee.intro;
-        vm.baseIntroPoint = vm.enterFee.point;
+        var feeCombo = vm.feeCombos[vm.feeCombos.indexOf(vm.enterFee)];
+        vm.introFee = feeCombo.intro;
+        vm.baseIntroPoint = feeCombo.point;
       };
     });
     
