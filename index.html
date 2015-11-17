@@ -86,7 +86,7 @@
               <h3 class="panel-title">計算結果</h3>
             </div>
             <div class="panel-body">
-              單筆介紹費 * 月數 * 人數 = 介紹費({{introFee * month * totalMonth * (peopleFound1st + 1)}}) <br>
+              單筆介紹費 * 月數 * 人數 = 介紹費({{introFee * (month * totalMonth + peopleFound1st)}}) <br>
               單筆點數 * 月數 * 人數 = 總點數({{baseIntroPoint * month * peopleFound1st}}) <br>
         
               第[ 1 ]代找[ {{peopleFound1st}} ]人總人數為：{{getMemberCount(1)}}<br>
