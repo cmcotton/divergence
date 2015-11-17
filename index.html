@@ -220,7 +220,7 @@
         
         for (var i = 0; i < vm.feeCombos.length; i++) {
           if (vm.feeCombos[i].fee == vm.enterFee) {
-            vm.introFee = vm.feeCombos[i].intro;
+            vm.introFee = vm.feeCombos[i].intro * vm.exchangeRate;
             vm.baseIntroPoint = vm.feeCombos[i].point;
             break;
           }
