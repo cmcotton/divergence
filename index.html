@@ -189,7 +189,7 @@
       
       vm.getPointCount = function myself (gen) {
         // if (gen == 1) {
-          return (vm.getMemberCount(gen - 1) + vm.getMemberCount(gen - (7 - gen)) * (7 - gen)  / 2 * vm.minusPoint;
+          return (vm.getMemberCount(gen - 1) + vm.getMemberCount(7)) * (7 - gen)  / 2 * vm.minusPoint;
         // } else {
           // return vm.getMemberCount(gen) * vm.minusPoint + myself(gen -1);
         // }
